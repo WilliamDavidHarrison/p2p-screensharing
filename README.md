@@ -14,27 +14,27 @@ Screensharing is optional, you may start streaming at any time, stop streaming, 
 ## Self Hosting
 Self hosting p2p Screensharing is easy, follow these 5 simple steps:
 
-1. Clone the repository
+### 1. Clone the repository
 ```
 git clone https://github.com/WilliamDavidHarrison/p2p-screensharing
 ```
 
-2. Change directory
+### 2. Change directory
 ```
 cd p2p-screensharing
 ```
 
-3. Install dependencies
+### 3. Install dependencies
 ```
 npm install
 ```
 
-4. Start the server
+### 4. Start the server
 ```
 npm start -- --port 3000 --host
 ```
 
 > You can replace `3000` with whatever port you want the server to run on.
 
-5. Open your browser
+### 5. Open your browser
 Open http://localhost:3000 in your browser and you will see your application ready to go!
