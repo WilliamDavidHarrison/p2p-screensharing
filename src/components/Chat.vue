@@ -51,6 +51,12 @@ function onData(data: unknown) {
 
         messages.value = [message, ...messages.value].slice(0, 100);
     }
+
+    // Scroll chat to bottom
+    chatEl.value?.scrollTo({
+        top: chatEl.value.scrollHeight,
+        behavior: "smooth"
+    });
 }
 
 onMounted(() => {
