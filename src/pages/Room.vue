@@ -81,15 +81,14 @@ onMounted(() => {
 <template>
   <Navbar>
     <h1>
-      <strong>{{ isHost ? username : peerName }}</strong
-      >'s room
+      <strong>{{ isHost ? username : peerName }}</strong>'s room
     </h1>
 
     <button
       type="button"
       class="text-red-400 hover:text-red-500 transition-colors"
       @click="router.push('/')">
-      {{ isHost ? 'Close room' : 'Leave room' }}
+      {{ isHost ? 'Close Room' : 'Leave Room' }}
     </button>
   </Navbar>
 
@@ -105,11 +104,10 @@ onMounted(() => {
   <Modal :show="roomClosed">
     <div class="text-center">
       <h1 class="text-xl mt-6 mb-8">
-        <strong>{{ peerName }}</strong> has {{ isHost ? 'left' : 'closed' }} the
-        room.
+        <strong>{{ peerName }}</strong> has {{ isHost ? 'left' : 'closed' }} the room.
       </h1>
 
-      <Button @click="router.push('/')">Go back</Button>
+      <Button @click="router.push('/')">Go Back</Button>
     </div>
   </Modal>
 </template>

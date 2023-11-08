@@ -112,11 +112,9 @@ watchEffect(() => {
   <main
     v-if="username.length && connected"
     class="flex-1 flex flex-col space-y-8 items-center justify-center px-6 text-center mx-auto">
-    <h1 class="text-2xl font-medium">Your room is ready.</h1>
+    <h1 class="text-2xl font-medium">Your room is ready!</h1>
 
-    <p class="text-lg">
-      Send the link below to your peer so they can join you!
-    </p>
+    <p class="text-lg">Send the link below to someone so they can join you!</p>
 
     <p class="text-blue-400">
       {{ url }}
@@ -130,21 +128,21 @@ watchEffect(() => {
   <Modal :show="queue.length > 0">
     <div v-if="queue.length" class="text-center">
       <p class="text-lg mt-6 mb-8">
-        <strong>{{ queue[0].username }}</strong> wants to join your room.
+        <strong>{{ queue[0].username }}</strong> wants to join your room!
       </p>
 
       <div class="space-x-2">
         <Button
           type="button"
-          class="bg-red-400 hover:bg-red-500 flex-1"
-          @click="decline(queue[0] as Request)">
-          Decline
-        </Button>
-        <Button
-          type="button"
           @click="accept(queue[0] as Request)"
           class="flex-1">
           Accept
+        </Button>
+        <Button
+          type="button"
+          class="bg-red-400 hover:bg-red-500 flex-1"
+          @click="decline(queue[0] as Request)">
+          Decline
         </Button>
       </div>
     </div>

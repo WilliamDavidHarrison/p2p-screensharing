@@ -59,7 +59,7 @@ watchEffect(() => {
       }
 
       connection.value?.off('close')
-      peerName.value = data.substring(0, 12)
+      peerName.value = data.substring(0, 16)
       connectionToPeer.value = connection.value
     })
 
@@ -93,7 +93,7 @@ onUnmounted(() => {
   </Modal>
 
   <Modal
-    :show="username.length > 0 && !connectionToPeer && !invalidId && !rejected">
+    :show="username.length <= 16 && !connectionToPeer && !invalidId && !rejected">
     <WaitingModal
       title="Requesting to join room..."
       @cancel="router.push('/')" />
@@ -102,7 +102,7 @@ onUnmounted(() => {
   <Modal :show="invalidId || rejected">
     <div class="text-center">
       <h1 v-if="rejected" class="text-xl mt-6 mb-8">
-        Your request was rejected.
+        Your request to join was rejected.
       </h1>
       <h1 v-else class="text-xl mt-6 mb-8">Invalid room ID.</h1>
 

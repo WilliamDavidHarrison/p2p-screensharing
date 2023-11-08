@@ -113,7 +113,7 @@ function sendMessage() {
       <input
         type="text"
         v-model="text"
-        :placeholder="`Message @${peerName}`"
+        :placeholder="`Message ${peerName}`"
         class="flex-1 h-full outline-none bg-slate-900 rounded px-3 ring-2 ring-transparent focus:ring-blue-400 transition-all" />
 
       <button type="submit" class="absolute right-4">

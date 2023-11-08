@@ -8,8 +8,8 @@ const text = ref('')
 const error = ref('')
 
 watch(text, (value) => {
-  if (value.length > 12) {
-    error.value = 'Username cannot exceed 12 characters.'
+  if (value.length > 16) {
+    error.value = 'Username cannot exceed 16 characters.'
     return
   }
 
@@ -24,8 +24,8 @@ function submit() {
     return
   }
 
-  if (trimmed.length > 12) {
-    error.value = 'Username cannot exceed 12 characters.'
+  if (trimmed.length > 16) {
+    error.value = 'Username cannot exceed 16 characters.'
     return
   }
 

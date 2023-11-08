@@ -73,7 +73,7 @@ function startStream() {
     .getDisplayMedia({
       audio: true,
       video: {
-        frameRate: (window as any).FRAMERATE || 30 // experimental
+        frameRate: (window as any).FRAMERATE || 60 // Experimental, do not set the frame rate higher than 60 as it can cause issues
       }
     })
     .then((mediaStream) => {
@@ -114,7 +114,7 @@ function stopStream() {
   <div id="stream-section">
     <section>
       <div class="bg-slate-900 aspect-video flex items-center justify-center">
-        <p v-if="!stream">Waiting for video...</p>
+        <p v-if="!stream">Waiting for the host to start streaming...</p>
         <video
           ref="videoEl"
           v-show="stream"
@@ -129,17 +129,17 @@ function stopStream() {
       v-if="isHost"
       class="h-14 bg-slate-700 flex items-center justify-center">
       <Button v-if="!stream" type="button" @click="startStream">
-        Start stream
+        Start Stream
       </Button>
       <div
         v-else
         class="px-4 w-full lg:w-96 lg:px-0 flex items-center justify-between">
-        <Button type="button" @click="startStream">Change source</Button>
+        <Button type="button" @click="startStream">Change Source</Button>
         <button
           type="button"
           class="text-red-400 hover:text-red-500 transition-colors"
           @click="stopStream">
-          Stop streaming
+          End Stream
         </button>
       </div>
     </section>

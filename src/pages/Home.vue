@@ -10,21 +10,21 @@ const router = useRouter()
 <template>
   <Navbar>
     <Brand />
-    <Button type="button" @click="router.push('/create')">Create room</Button>
+    <Button type="button" @click="router.push('https://github.com/WilliamDavidHarrison/p2p-screensharing')">GitHub</Button>
   </Navbar>
 
   <main
     className="flex-1 flex flex-col items-center justify-center space-y-10 text-center">
     <h1 className="text-2xl md:text-3xl font-bold">p2p Screensharing</h1>
     <h2 className="max-w-xs text-lg md:text-xl md:max-w-md">
-      Peer-to-peer screensharing and chat, with anyone,
-      <strong>no account neded</strong>.
+      Chat and screenshare peer-to-peer, without a server, no account needed.
+      <strong>No account needed.</strong>
     </h2>
     <Button
       type="button"
       class="text-lg shadow-lg"
-      @click="router.push('/create')"
-      >Create room</Button
-    >
+      @click="router.push('/create')">
+      Create Room
+    </Button>
   </main>
 </template>
