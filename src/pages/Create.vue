@@ -43,6 +43,7 @@ onMounted(() => {
     peer.on("connection", (connection) => {
         connection.once("data", (data) => {
             if(typeof data !== "string") return connection.close();
+            if(data === username.value) return connection.close();
 
             queue.value.push({
                 connection,
@@ -84,9 +85,7 @@ function accept(request: Request) {
 }
 
 watchEffect(() => {
-    if(peerName.value && connectionToPeer.value) {
-        router.push(`/rooms/${peerId.value}`);
-    }
+    if(peerName.value && connectionToPeer.value) router.push(`/rooms/${peerId.value}`);
 });
 </script>
 
@@ -107,12 +106,19 @@ watchEffect(() => {
         v-if="username.length && connected"
         class="flex-1 flex flex-col space-y-6 items-center justify-center px-6 text-center mx-auto"
     >
-        <h1 class="text-2xl font-semibold">
-            Your room has been created.
-            <p class="text-sm font-normal">Send the link below to someone so they can join you.</p>
-        </h1>
+        <h1 class="text-3xl font-bold">🎉 Your room has been created!</h1>
 
-        <p class="text-blue-400 font-semibold">{{ url }}</p>
+        <p class="text-gray-400 text-lg font-semibold">
+            Your username is <span class="text-blue-400">{{ username }}</span>.
+            <br>
+            <span class="font-normal text-xs">Any requests using the same username will be automatically rejected.</span>
+        </p>
+
+        <p class="text-blue-400 font-semibold">
+            {{ url }}
+            <br>
+            <span class="font-normal text-xs text-gray-400">Share this link with someone to invite them to your room.</span>
+        </p>
 
         <Button type="button" class="w-30" @click="copyToClipboard">
             {{ copied ? "Copied!" : "Copy Link" }}
@@ -121,11 +127,11 @@ watchEffect(() => {
 
     <Modal :show="queue.length > 0">
         <div v-if="queue.length" class="text-center">
-            <p class="text-lg mt-6 mb-8"><strong>{{ queue[0].username }}</strong> wants to join your room!</p>
+            <p class="text-lg mt-2 mb-6"><strong>{{ queue[0].username }}</strong> wants to join your room.</p>
 
             <div class="space-x-2">
-                <Button type="button" @click="accept(queue[0] as Request)" class="flex-1">Accept</Button>
-                <Button type="button" class="bg-red-400 hover:bg-red-500 flex-1" @click="decline(queue[0] as Request)">Decline</Button>
+                <Button type="button" class="bg-green-500 hover:bg-green-600 flex-1" @click="accept(queue[0] as Request)">Accept</Button>
+                <Button type="button" class="bg-red-500 hover:bg-red-600 flex-1" @click="decline(queue[0] as Request)">Decline</Button>
             </div>
         </div>
     </Modal>

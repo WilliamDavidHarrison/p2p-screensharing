@@ -51,7 +51,7 @@ watchEffect(() => {
 
         connection.value.once("data", (data: unknown) => {
             if(typeof data !== "string") {
-                rejected.value = true;
+                rejected.value = false;
                 connection.value?.close();
                 return;
             }
@@ -75,9 +75,7 @@ watchEffect(() => {
 
 // Close pending connection if any
 onUnmounted(() => {
-    if(connection.value && !connectionToPeer.value) {
-        connection.value.close();
-    }
+    if(connection.value && !connectionToPeer.value) connection.value.close();
 });
 </script>
 
@@ -96,8 +94,9 @@ onUnmounted(() => {
 
     <Modal :show="invalidId || rejected">
         <div class="text-center">
+            <h1 v-if="invalidId" class="text-xl text-red-400 font-semibold mt-2 mb-6">Invalid room ID.</h1>
             <h1 v-if="rejected" class="text-xl text-red-400 font-semibold mt-2 mb-6">Your request to join was rejected.</h1>
-            <h1 v-else class="text-xl mt-6 mb-8">Invalid room ID.</h1>
+            <h1 v-else class="text-xl text-red-400 font-semibold mt-2 mb-6">An unknown error occurred.</h1>
 
             <Button @click="router.push('/')">Go Home</Button>
         </div>

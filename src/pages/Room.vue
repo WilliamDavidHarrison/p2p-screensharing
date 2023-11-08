@@ -11,9 +11,7 @@ import { connectionToPeer, peer, peerId, peerName } from "../lib/peer";
 const route = useRoute();
 
 const id = computed(() => {
-    if(Array.isArray(route.params.id)) {
-        return route.params.id[0];
-    }
+    if(Array.isArray(route.params.id)) return route.params.id[0];
 
     return route.params.id;
 });
@@ -25,17 +23,13 @@ const lastPing = ref(Date.now());
 const interval = setInterval(() => {
     connectionToPeer.value?.send("ping");
 
-    if(lastPing.value < Date.now() - 7000) {
-        connectionToPeer.value?.close();
-    }
+    if(lastPing.value < Date.now() - 7000) connectionToPeer.value?.close();
 }, 5000);
 
 onMounted(() => {
     // Update ping value
     connectionToPeer.value?.on("data", (data) => {
-        if(data === "ping") {
-            lastPing.value = Date.now();
-        }
+        if(data === "ping") lastPing.value = Date.now();
     });
 });
 
