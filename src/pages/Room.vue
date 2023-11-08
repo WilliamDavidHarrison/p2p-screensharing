@@ -94,7 +94,7 @@ onMounted(() => {
         <div class="text-center">
             <h1 class="text-xl mt-2 mb-4"><strong>{{ peerName }}</strong> has {{ isHost ? "left" : "closed" }} the room.</h1>
 
-            <Button class="bg-red-500 hover:bg-red-400 transition-colors" @click="router.push('/')">Go Home</Button>
+            <Button class="bg-red-500 hover:bg-red-400 transition-colors" @click="router.push('/')">Exit Room</Button>
         </div>
     </Modal>
 </template>
