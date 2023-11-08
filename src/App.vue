@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted } from "vue";
 
 function resize() {
-  document.body.style.width = `${window.innerWidth}px`
-  document.body.style.height = `${window.innerHeight}px`
+    document.body.style.width = `${window.innerWidth}px`;
+    document.body.style.height = `${window.innerHeight}px`;
 }
 
-resize()
+resize();
 
 onMounted(() => {
-  window.addEventListener('resize', resize)
-})
+    window.addEventListener("resize", resize);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('resize', resize)
-})
+    window.removeEventListener("resize", resize);
+});
 </script>
 
 <template>
-  <RouterView></RouterView>
+    <RouterView></RouterView>
 </template>

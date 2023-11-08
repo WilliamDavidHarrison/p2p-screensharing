@@ -12,7 +12,7 @@ Once you have opened it on your browser, you can create a room, choose a usernam
 Screensharing is optional, you may start streaming at any time, stop streaming, change the window/screen that you're sharing. Audio capture may not be available, depending on your browser.
 
 ## Self Hosting
-To self host p2p Screensharing, follow these 4 simple steps:
+Self hosting p2p Screensharing is easy, follow these 5 simple steps:
 
 1. Clone the repository
 ```
@@ -28,10 +28,13 @@ cd p2p-screensharing
 ```
 npm install
 ```
+
+4. Start the server
+```
 npm start -- --port 3000 --host
 ```
 
 > You can replace `3000` with whatever port you want the server to run on.
 
-4. Open your browser
+5. Open your browser
 Open http://localhost:3000 in your browser and you will see your application ready to go!
