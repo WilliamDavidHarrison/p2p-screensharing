@@ -1,6 +1,8 @@
 # p2p Screensharing
 Chat and screenshare peer-to-peer, without a server, no account needed.
 
+###### This repository is a forked and updated version of *[purplnay/p2p-screensharing](https://github.com/purplnay/p2p-screensharing)*.
+
 ## Introduction
 Backed by no server, p2p Screensharing runs entirely in the browser to chat and screenshare with a peer. It supports both mobile and desktop (screen capture may not be available on mobile).
 
