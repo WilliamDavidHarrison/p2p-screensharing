@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "peerjs": "^1.5.2",
-    "vue": "^3.4.4",
+    "vue": "^3.4.6",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
