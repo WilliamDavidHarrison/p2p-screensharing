@@ -14,8 +14,13 @@ Once you have opened it on your browser, you can create a room, choose a usernam
 Screensharing is optional, you may start streaming at any time, stop streaming, change the window/screen that you're sharing. Audio capture may not be available, depending on your browser.
 
 ## Self Hosting
-> **Important**
+> [!IMPORTANT]
 > This application requires a domain name to work properly. It will most likely not work with an IP address like `0.0.0.0:3000`.
+
+### Pterodactyl
+If you are looking to host this app using your Pterodactyl panel, you can find the pre-made egg [here](https://github.com/wdhdev/eggs/tree/main/software/p2p-screensharing).
+
+---
 
 ### 1. Clone the repository
 ```
