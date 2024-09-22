@@ -8,13 +8,6 @@ Chat and screenshare peer-to-peer, without a server, no account needed.
 ## Introduction
 Backed by no server, p2p Screensharing runs entirely in the browser to chat and screenshare with a peer. It supports both mobile and desktop (screen capture may not be available on mobile).
 
-## Public Version
-A public version of the app is available [here](https://screenshare.wdh.gg).
-
-Once you have opened it on your browser, you can create a room, choose a username and share the room's link with the person you'd like to chat/screenshare with.
-
-Screensharing is optional, you may start streaming at any time, stop streaming, change the window/screen that you're sharing. Audio capture may not be available, depending on your browser.
-
 ## Self Hosting
 > [!IMPORTANT]
 > This application requires a domain name to work properly. It will most likely not work with an IP address like `0.0.0.0:3000`.
